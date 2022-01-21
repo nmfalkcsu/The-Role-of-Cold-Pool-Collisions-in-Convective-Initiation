@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+cd /home/nfalk/HFCACPG/MAC/run
+
+ssh frost2 << frost2_commands
+	cd /home/nfalk/HFCACPG/prod21/run
+	./run_MAC 1 10 24 76
+	exit
+frost2_commands
+
+ssh frost4<< frost4_commands
+	cd /home/nfalk/HFCACPG/prod21/run
+	./run_MAC 1 10 80 132
+	exit
+frost4_commands
+
+ssh frost5 << frost5_commands
+	cd /home/nfalk/HFCACPG/prod21/run
+	./run_MAC 1 10 136 160
+	./run_MAC 11 20 24 48
+	exit
+frost5_commands
+
+ssh frost6 << frost6_commands
+	cd /home/nfalk/HFCACPG/prod21/run
+	./run_MAC 11 20 52 104
+	exit
+frost6_commands
+
+ssh frost7 << frost7_commands
+	cd /home/nfalk/HFCACPG/prod21/run
+	./run_MAC 11 20 108 160
+	exit
+frost7_commands
+
+echo "done"
